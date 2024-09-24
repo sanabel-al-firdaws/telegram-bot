@@ -1,4 +1,4 @@
-on:
+on: 
   telegram_bot:
     token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 jobs:
