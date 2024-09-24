@@ -10,4 +10,4 @@ jobs:
         env:
           telegram_text: ${{ on.telegram_bot.outputs.text }}
         run: |
-          echo telegram text: $telegram_text
+          echo $telegram_text >> test.txt 
