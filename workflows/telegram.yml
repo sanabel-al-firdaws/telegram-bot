@@ -11,6 +11,6 @@ jobs:
       - name: Make a HTTP Request      
         uses: actionsflow/axios@main
         with:
-          url: ${{ secrets.WEBHOOK_URL }}
+          url: '${{ secrets.WEBHOOK_URL }}'
           method: POST
           body: 'entry.870605213=1'
