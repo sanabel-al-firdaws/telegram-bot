@@ -13,4 +13,4 @@ jobs:
         with:
           url: ${{ secrets.WEBHOOK_URL }}
           method: 'POST'
-          body: ${{ secrets.WEBHOOK_URL2 }}
+          body: entry.870605213=1
