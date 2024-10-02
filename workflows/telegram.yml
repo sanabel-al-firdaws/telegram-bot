@@ -1,4 +1,4 @@
-name: Send a webhook when receive a telegram message
+name: Send a webhook when receive a telegram message 
 on:
   telegram_bot:
     event: text
