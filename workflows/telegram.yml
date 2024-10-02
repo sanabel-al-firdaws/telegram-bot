@@ -13,4 +13,4 @@ jobs:
         with:
           url: ${{ secrets.WEBHOOK_URL }}
           method: 'POST'
-          body: ${{ secrets.WEBHOOK_URL2 }}${{ toJson(on.telegram_bot.outputs) }}
+          body: ${{ secrets.WEBHOOK_URL2 }}
