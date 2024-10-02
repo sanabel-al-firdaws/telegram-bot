@@ -8,6 +8,9 @@ jobs:
     name: Send HTTP Request
     runs-on: ubuntu-latest
     steps:
-      - name: Send HTTP Request
-        run: curl '${{ secrets.WEBHOOK_URL }}' --data  'entry.870605213=1'
-
+      - name: Make a HTTP Request      
+        uses: actionsflow/axios@main
+        with:
+          url: ${{ secrets.WEBHOOK_URL }}
+          method: POST
+          body: 'entry.870605213=1'
