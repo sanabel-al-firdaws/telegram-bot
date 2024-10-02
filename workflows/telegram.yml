@@ -1,21 +1,16 @@
-on: 
+name: Send a webhook when receive a telegram message
+on:
   telegram_bot:
-    token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    # note: you should set webhook first, see https://github.com/actionsflow/actionsflow/tree/main/packages/actionsflow-trigger-telegram_bot#options
+    webhook: true
 jobs:
-  print:
-    name: Print
+  webhook:
+    name: Send HTTP Request
     runs-on: ubuntu-latest
     steps:
-      - name: Print Outputs
-        env:
-          telegram_text: ${{ on.telegram_bot.outputs.text }}
-        run: |
-          echo $telegram_text >> test.txt 
-
-      - name: Commit new data
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Send HTTP Request
+        uses: actionsflow/axios@v1
         with:
-          commit_message: "Update Telegram files"
-          commit_user_name: GitHub Actions
-          commit_user_email: actions@github.com
-          commit_author: GitHub Actions <actions@github.com>
+          url: ${{ secrets.WEBHOOK_URL }}
+          method: 'POST'
+          body: ${{ secrets.WEBHOOK_URL2 }}${{ toJson(on.telegram_bot.outputs) }}
